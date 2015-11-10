@@ -1,0 +1,26 @@
+
+body{
+
+  text-align: center;
+
+  background-color: #CCEEFF;
+}
+
+textarea{
+
+  margin-left: 2em;
+  margin-bottom: 2em;
+  margin-right: 5em;
+  margin-top:2em;
+
+  width: 290px;
+  height: 100px;
+}
+
+#mic {
+
+  border: 2px solid;
+
+  width: 50px;
+  height: 50px;
+}
