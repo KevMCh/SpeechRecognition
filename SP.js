@@ -54,8 +54,12 @@
                 finalTranscript.value = finalResult;
                 areaResult.value = interimResult;
 
-                if (interimResult.indexOf('terminar') != -1)
+                if (interimResult.indexOf('terminar') != -1){
                     recognition.stop();
+                }
+
+                buscar()
+
             };
 
             recognition.onnomatch = function (event) {
@@ -75,3 +79,11 @@
                 console.log("onend");
             };
         };
+
+        function buscar(){
+          var word = document.getElementById('finalTranscript').innerHTML
+          var text = document.getElementById('pTexto').innerHTML
+          var exp = new RegExp(word,'g')
+          var nuevoTexto = text.replace(exp,'<span class="encontrado">'+word+'</span>')
+          document.getElementById("pTexto").innerHTML = nuevoTexto;
+        }
