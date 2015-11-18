@@ -52,13 +52,14 @@
                 }
 
                 finalTranscript.value = finalResult;
+                buscar()
+
                 areaResult.value = interimResult;
+
 
                 if (interimResult.indexOf('terminar') != -1){
                     recognition.stop();
                 }
-
-                buscar()
 
             };
 
