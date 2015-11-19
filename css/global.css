@@ -25,6 +25,13 @@ textarea{
   height: 50px;
 }
 
+#pTexto{
+
+  margin-left: 2em;
+  margin-right: 5em;
+
+}
+
 .encontrado {
   background-color: yellow;
 }
