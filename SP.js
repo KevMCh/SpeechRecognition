@@ -31,7 +31,6 @@
 
             recognition.onsoundend = function (event) {
                 console.log("onsoundend");
-
             };
 
             recognition.onaudioend = function (event) {
@@ -40,6 +39,9 @@
             };
 
             recognition.onresult = function (event) {
+
+                reset()
+
                 console.log("onresult");
                 var interimResult = '',
                     finalResult = '';
@@ -55,12 +57,14 @@
 
                 areaResult.value = interimResult;
 
+                if(interimResult!=''){
+
+                  buscar(interimResult);
+                }
 
                 if (interimResult.indexOf('terminar') != -1){
                     recognition.stop();
-                    buscar()
                 }
-
             };
 
             recognition.onnomatch = function (event) {
@@ -81,9 +85,9 @@
             };
         };
 
-        function buscar(){
-          var word = document.getElementById('finalTranscript').innerHTML
-          word = word.replace(" terminar", "")
+        function buscar(w){
+
+          var word = w
           var text = document.getElementById('pTexto').innerHTML
           var exp = new RegExp(word,'g')
           var nuevoTexto = text.replace(exp,'<span class="encontrado">'+word+'</span>')
