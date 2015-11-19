@@ -40,6 +40,8 @@
 
             recognition.onresult = function (event) {
 
+                reset()
+
                 console.log("onresult");
                 var interimResult = '',
                     finalResult = '';
@@ -90,4 +92,14 @@
           var exp = new RegExp(word,'g')
           var nuevoTexto = text.replace(exp,'<span class="encontrado">'+word+'</span>')
           document.getElementById("pTexto").innerHTML = nuevoTexto;
+        }
+
+        function reset(){
+
+          var text = document.getElementById('pTexto').innerHTML
+          var regEx = "<span class=\"encontrado\">(.*)</span>"
+          var exp = new RegExp(regEx,'g')
+          var nuevoTexto = text.replace(exp,"$1")
+          document.getElementById("pTexto").innerHTML = nuevoTexto;
+
         }
