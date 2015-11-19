@@ -40,8 +40,6 @@
 
             recognition.onresult = function (event) {
 
-                reset()
-
                 console.log("onresult");
                 var interimResult = '',
                     finalResult = '';
