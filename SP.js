@@ -52,14 +52,14 @@
                 }
 
                 finalTranscript.value = finalResult;
-                buscar()
 
-                //areaResult.value = interimResult;
+                areaResult.value = interimResult;
 
 
-                /*if (interimResult.indexOf('terminar') != -1){
+                if (interimResult.indexOf('terminar') != -1){
                     recognition.stop();
-                }*/
+                    buscar()
+                }
 
             };
 
@@ -83,6 +83,7 @@
 
         function buscar(){
           var word = document.getElementById('finalTranscript').innerHTML
+          word = word.replace(" terminar", "")
           var text = document.getElementById('pTexto').innerHTML
           var exp = new RegExp(word,'g')
           var nuevoTexto = text.replace(exp,'<span class="encontrado">'+word+'</span>')
